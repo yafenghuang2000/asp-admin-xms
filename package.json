@@ -4,6 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "commit": "cz",
+    "clean": "rimraf build",
+    "check-env": "node scripts/check-env.js",
     "lint": "eslint .",
     "preview": "vite preview",
     "lint:fix": "eslint . --fix",
@@ -17,8 +20,7 @@
     "build:production": "tsc -b && vite build --mode production",
     "build:staging": "tsc -b && vite build --mode staging",
     "build:test": "tsc -b && vite build --mode test",
-    "dev": "vite",
-    "build": "tsc -b && vite build"
+    "dev": "vite"
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
@@ -57,6 +59,7 @@
     "@vitejs/plugin-legacy": "^6.0.0",
     "@vitejs/plugin-react-swc": "^3.5.0",
     "commitizen": "^4.3.1",
+    "cross-env": "^7.0.3",
     "cz-customizable": "^7.4.0",
     "dayjs": "^1.11.13",
     "eslint": "^9.18.0",
@@ -87,6 +90,12 @@
     ]
   },
   "engines": {
-    "node": ">=16.7.0"
+    "node": "20.18.1"
+  },
+  "packageManager": "pnpm@9.15.3",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
   }
 }

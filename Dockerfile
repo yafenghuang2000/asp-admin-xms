@@ -8,7 +8,9 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖
-RUN npm install
+RUN npm install pnpm -g 
+
+RUN pnpm install
 
 # 复制应用源代码
 COPY . .
@@ -18,7 +20,7 @@ ARG NODE_ENV=production
 ENV NODE_ENV=${NODE_ENV}
 
 # 根据环境构建应用
-RUN npm run build:${NODE_ENV}
+RUN pnpm run build:${NODE_ENV}
 
 # 使用 Nginx 镜像来服务构建的应用
 FROM nginx:latest
