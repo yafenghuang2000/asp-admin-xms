@@ -10,7 +10,6 @@
     "isolatedModules": true,
     "moduleDetection": "force",
     "emitDeclarationOnly": true,
-
     /* 类型检查 */
     "strict": true,
     "noImplicitAny": true,
@@ -18,11 +17,10 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-
     /* 其他 */
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true
   },
-  "include": ["vite.config.ts"]
+  "include": ["vite.config.ts", "viteConfigBuild.ts"]
 }

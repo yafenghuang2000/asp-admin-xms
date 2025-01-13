@@ -1,4 +1,4 @@
-export type ParamValue = string | number | null | undefined | boolean | Date;
+type ParamValue = string | number | null | undefined | boolean | Date;
 export interface IParamsType {
   [key: string]: ParamValue | ParamValue[] | IParamsType | IParamsType[];
 }

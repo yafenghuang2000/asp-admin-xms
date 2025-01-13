@@ -1,8 +1,11 @@
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
+
+import routers from './routers';
 
 const App: React.FC = () => (
   <div>
-    <h1>App</h1>
+    <RouterProvider router={routers} />
   </div>
 );
 

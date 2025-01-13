@@ -1,5 +1,7 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
+import path from 'path';
+import { manualChunks } from './viteConfigBuild';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
@@ -18,6 +20,58 @@ export default defineConfig(({ mode }) => {
           changeOrigin: true,
           rewrite: (path) => path.replace(/^\/api/, ''),
         },
+      },
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+      },
+    },
+    build: {
+      outDir: 'build',
+      assetsDir: 'assets',
+      sourcemap: true,
+      minify: 'terser',
+      chunkSizeWarningLimit: 1024,
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true,
+        },
+      },
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            return manualChunks(id);
+          },
+          chunkFileNames: (chunkInfo) => {
+            return chunkInfo.name.includes('vendor')
+              ? 'js/vendor/[name].[hash].js'
+              : 'js/app/[name].[hash].js';
+          },
+          entryFileNames: 'js/app/[name].[hash].js',
+          assetFileNames: (assetInfo) => {
+            // 根据 asset 的类型和路径决定输出子目录
+            if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+              return assetInfo.name.includes('node_modules')
+                ? 'css/vendor/[name].[hash].[ext]'
+                : 'css/app/[name].[hash].[ext]';
+            }
+            return 'assets/[name].[hash].[ext]';
+          },
+        },
+      },
+    },
+
+    css: {
+      preprocessorOptions: {
+        less: {
+          javascriptEnabled: true,
+          modifyVars: {
+            '@primary-color': '#1890ff',
+          },
+        },
+        sass: {},
       },
     },
     define: {
