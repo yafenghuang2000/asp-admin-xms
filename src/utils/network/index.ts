@@ -79,7 +79,7 @@ const parse = (res: AxiosResponse) => {
 
 export const get = async ({ url, params }: IRequestConfingType): Promise<unknown> => {
   const queryValues = getQueryString(params);
-  const res: AxiosResponse = await axios.get(queryValues ? `url?${queryValues}` : url);
+  const res: AxiosResponse = await axios.get(queryValues ? `${url}?${queryValues}` : url);
   return res;
 };
 
