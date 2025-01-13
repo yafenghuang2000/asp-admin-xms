@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "commit": "cz",
-    "clean": "rimraf build",
+    "clean": "rimraf dist",
     "check-env": "node scripts/check-env.js",
     "lint": "eslint .",
     "preview": "vite preview",
@@ -78,7 +78,8 @@
     "semver": "^7.6.3",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",
-    "vite": "^6.0.5"
+    "vite": "^6.0.5",
+    "vite-plugin-progress": "^0.0.7"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [

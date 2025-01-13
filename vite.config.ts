@@ -1,12 +1,20 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
+import legacy from '@vitejs/plugin-legacy';
+import progress from 'vite-plugin-progress';
 import { manualChunks } from './viteConfigBuild';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
   return {
-    plugins: [react()],
+    plugins: [
+      react(),
+      progress(),
+      legacy({
+        targets: ['defaults', 'not IE 11'],
+      }),
+    ],
     server: {
       port: 8000,
       open: true,
@@ -28,7 +36,7 @@ export default defineConfig(({ mode }) => {
       },
     },
     build: {
-      outDir: 'build',
+      outDir: 'dist',
       assetsDir: 'assets',
       sourcemap: true,
       minify: 'terser',
