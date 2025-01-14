@@ -5,6 +5,7 @@ import { cookieUtils } from '@/utils/Cookies';
 
 const Home = React.lazy(() => import('@/pages/Home'));
 const Login = React.lazy(() => import('@/pages/Login'));
+const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
 
 const isUserAuthenticated = () => {
   const user = cookieUtils.get('user');
@@ -17,19 +18,21 @@ const isUserAuthenticated = () => {
 const routers = createBrowserRouter([
   {
     path: '/',
-    element: <Home />,
+    Component: Home,
     loader: isUserAuthenticated,
     children: [],
   },
   {
     path: '/login', // 登录页面
-    element: <Login />,
+    Component: Login,
     children: [],
   },
   {
     path: '*',
-    element: <div>404页面</div>,
+    Component: NotFoundPage,
   },
 ]);
 
 export default routers;
+
+//404页面
