@@ -8,7 +8,7 @@ const userSlice = createSlice({
     },
   },
   reducers: {
-    setUserinfo: (state) => ({ ...state, name: 'admin-xms' }),
+    setUserinfo: (state, actio) => ({ ...state, userinfo: actio.payload }),
   },
 });
 
