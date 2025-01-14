@@ -3,7 +3,9 @@ import { createSlice } from '@reduxjs/toolkit';
 const userSlice = createSlice({
   name: 'userinfo',
   initialState: {
-    userinfo: {},
+    userinfo: {
+      name: 'admin',
+    },
   },
   reducers: {
     setUserinfo: (state) => ({ ...state, name: 'admin-xms' }),
