@@ -5,6 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react'; // 导入 Persist
 
 import App from './App';
 import { store, persistor } from './store';
+import './main.scss';
 
 const container = document.getElementById('root') as HTMLElement;
 const root = createRoot(container);

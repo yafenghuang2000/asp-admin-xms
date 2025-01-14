@@ -1,29 +1,6 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import { RouterProvider } from 'react-router-dom';
+import React from 'react';
 
-import { setUserinfo } from '@/models/userModels';
+import XMSlayout from '@/layout';
 
-import routers from './routers';
-
-const App: React.FC = () => {
-  const dispatch = useDispatch();
-  //初始化
-  const getuserinfo = () => {
-    const userinfo = 'admin';
-    if (userinfo) {
-      dispatch(setUserinfo(userinfo));
-    }
-  };
-  useEffect(() => {
-    getuserinfo();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  return (
-    <div>
-      <RouterProvider router={routers} />
-    </div>
-  );
-};
-
+const App: React.FC = () => <XMSlayout>{/* <RouterProvider router={routers} /> */}</XMSlayout>;
 export default App;
