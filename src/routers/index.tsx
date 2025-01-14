@@ -1,11 +1,11 @@
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 
-// import Home from '@/pages/Home';
-import Login from '@/pages/Login';
+const Login = React.lazy(() => import('@/pages/Login'));
 
 const routers = createBrowserRouter([
   {
-    path: '/login',
+    path: '/',
     element: <Login />,
     children: [],
   },

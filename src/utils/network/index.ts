@@ -18,11 +18,6 @@ axios.interceptors.request.use(
   (error) => Promise.reject(error),
 );
 
-axios.interceptors.response.use(
-  (response: AxiosResponse) => parse(response),
-  (error) => Promise.reject(error),
-);
-
 const getQueryString = (params: IParamsType) => {
   if (!params) return '';
   const result: string[] = [];
@@ -79,11 +74,11 @@ const parse = (res: AxiosResponse) => {
 
 export const get = async <T>({ url, params }: IRequestConfingType): Promise<T> => {
   const queryValues = getQueryString(params);
-  const res: AxiosResponse = await axios.get(queryValues ? `${url}?${queryValues}` : url);
-  return res.data;
+  const res = await axios.get(queryValues ? `${url}?${queryValues}` : url);
+  return parse(res);
 };
 
 export const post = async <T>({ url, params }: IRequestConfingType): Promise<T> => {
-  const res: AxiosResponse = await axios.post(url, params);
-  return res.data;
+  const res = await axios.post(url, params);
+  return parse(res);
 };
