@@ -77,13 +77,13 @@ const parse = (res: AxiosResponse) => {
   return null;
 };
 
-export const get = async ({ url, params }: IRequestConfingType): Promise<unknown> => {
+export const get = async <T>({ url, params }: IRequestConfingType): Promise<T> => {
   const queryValues = getQueryString(params);
   const res: AxiosResponse = await axios.get(queryValues ? `${url}?${queryValues}` : url);
-  return res;
+  return res.data;
 };
 
-export const post = async ({ url, params }: IRequestConfingType): Promise<unknown> => {
+export const post = async <T>({ url, params }: IRequestConfingType): Promise<T> => {
   const res: AxiosResponse = await axios.post(url, params);
-  return res;
+  return res.data;
 };
