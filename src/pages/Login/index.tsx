@@ -12,8 +12,7 @@ const XMSlogin: React.FC = () => {
   }, []);
   return (
     <div>
-      <h1>Login</h1>
-      <h2>{user?.username}</h2>
+      <div>{user?.username ?? 'react+typescript+vite6.0+node20'}</div>
     </div>
   );
 };
