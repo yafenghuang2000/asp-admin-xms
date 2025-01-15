@@ -1,4 +1,4 @@
-$headerheight: 60px;
+$headerheight: 40px;
 
 .xms-home {
   width: 100%;
@@ -6,9 +6,32 @@ $headerheight: 60px;
   display: flex;
 
   &-left {
-    width: 10%;
+    width: 240px;
     height: 100%;
-    background-color: burlywood;
+
+    &-header {
+      width: 100%;
+      height: $headerheight;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-sizing: border-box;
+      border-bottom: 1px solid #ccc;
+      font-size: 20px;
+      font-weight: 900;
+      color: #237ffa;
+    }
+
+    &-content {
+      width: 100%;
+      height: calc(100% - $headerheight);
+      border-right: 1px solid #dfe2e8;
+
+      &-menu {
+        height: 100%;
+      }
+    }
   }
 
   &-right {

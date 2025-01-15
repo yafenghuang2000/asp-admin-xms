@@ -1,6 +1,5 @@
 import React from 'react';
 import { createBrowserRouter, redirect } from 'react-router-dom';
-
 import { cookieUtils } from '@/utils/Cookies';
 
 const Home = React.lazy(() => import('@/pages/Home'));
@@ -9,7 +8,7 @@ const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
 
 const isUserAuthenticated = () => {
   const user = cookieUtils.get('user');
-  if (!user) {
+  if (user) {
     return redirect('/login');
   }
   return null;

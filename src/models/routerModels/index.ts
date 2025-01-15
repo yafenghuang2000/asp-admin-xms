@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import dataItemsNenus from '@/models/routerModels/mockData';
 
 const routersSlice = createSlice({
   name: 'routers',
   initialState: {
-    routers: [],
+    routers: [...dataItemsNenus],
   },
   reducers: {},
 });
