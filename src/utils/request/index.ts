@@ -3,7 +3,10 @@ import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
 
 import { cookieUtils } from '../Cookies';
 
-import { IParamsType, IRequestConfingType } from './types';
+type ParamValue = string | number | null | undefined | boolean | Date;
+interface IParamsType {
+  [key: string]: ParamValue | ParamValue[] | IParamsType | IParamsType[];
+}
 
 axios.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
@@ -76,13 +79,63 @@ const parse = (res: AxiosResponse, params: { handleRaw?: boolean } = {}) => {
   return null;
 };
 
-export const get = async <T>({ url, data, params }: IRequestConfingType): Promise<T> => {
+const get = async <T>(
+  url: string,
+  data: IParamsType,
+  params: { handleRaw?: boolean } = {},
+): Promise<T> => {
   const queryValues = getQueryString(data);
   const res = await axios.get(queryValues ? `${url}?${queryValues}` : url);
   return parse(res, params);
 };
 
-export const post = async <T>({ url, data, params }: IRequestConfingType): Promise<T> => {
+const post = async <T>(
+  url: string,
+  data: IParamsType,
+  params: { handleRaw?: boolean } = {},
+): Promise<T> => {
   const res = await axios.post(url, data);
   return parse(res, params);
 };
+
+const put = async <T>(
+  url: string,
+  data: IParamsType,
+  params: { handleRaw?: boolean } = {},
+): Promise<T> => {
+  const res = await axios.put(url, data);
+  return parse(res, params);
+};
+
+const del = async <T>(
+  url: string,
+  data: IParamsType,
+  params: { handleRaw?: boolean } = {},
+): Promise<T> => {
+  const res = await axios.delete(url, data);
+  return parse(res, params);
+};
+
+const upload = async <T>(
+  url: string,
+  file: File | FormData,
+  params: { handleRaw?: boolean; responseType?: 'blob' } = {},
+): Promise<T> => {
+  const formData = file instanceof FormData ? file : new FormData();
+
+  if (file instanceof File) {
+    formData.append('file', file);
+  }
+
+  const config = {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+    responseType: params.responseType,
+  };
+
+  const res = await axios.post(url, formData, config);
+  return parse(res, params);
+};
+
+export { get, post, put, del, upload };

@@ -41,7 +41,7 @@ const persistConfig: PersistConfig<Partial<IStoreProps>> = {
   key: 'asp-admin-xms',
   storage: webStorage,
   transforms: [transform], // 使用转换
-  whitelist: [...whitelist],
+  whitelist,
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
