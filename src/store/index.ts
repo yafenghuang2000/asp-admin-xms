@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit';
 import { persistStore, persistReducer, PersistConfig, createTransform } from 'redux-persist';
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import { thunk } from 'redux-thunk';
-
 import { rootReducer, whitelist } from '@/models';
 import { IStoreProps } from '@/models/tyeps';
 

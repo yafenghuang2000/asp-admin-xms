@@ -98,9 +98,9 @@ export default [
       'import/order': [
         'error',
         {
-          groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
-          'newlines-between': 'always',
-          alphabetize: { order: 'asc' },
+          groups: ['external', 'internal'],
+          'newlines-between': 'never',
+          // alphabetize: false,
         },
       ],
 

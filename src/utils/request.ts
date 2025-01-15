@@ -1,7 +1,6 @@
 import { notification } from 'antd';
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
-
-import { cookieUtils } from '../Cookies';
+import { cookieUtils } from './Cookies';
 
 type ParamValue = string | number | null | undefined | boolean | Date;
 interface IParamsType {

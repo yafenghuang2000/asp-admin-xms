@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-
 import { getUserinfo } from '@/service/userService';
+
 const XMSlogin: React.FC = () => {
   const [user, setUser] = useState<{ username?: string }>({});
   const getUser = async () => {
