@@ -1,6 +1,7 @@
 import React from 'react';
+import { RouterProvider } from 'react-router-dom';
 
-import XMSlayout from '@/layout';
+import routers from '@/routers';
 
-const App: React.FC = () => <XMSlayout />;
+const App: React.FC = () => <RouterProvider router={routers} />;
 export default App;
