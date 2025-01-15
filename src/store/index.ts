@@ -3,7 +3,7 @@ import { persistStore, persistReducer, PersistConfig, createTransform } from 're
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import { thunk } from 'redux-thunk';
 
-import rootReducer from '@/models';
+import { rootReducer, whitelist } from '@/models';
 import { IStoreProps } from '@/models/tyeps';
 
 // 创建存储引擎
@@ -41,6 +41,7 @@ const persistConfig: PersistConfig<Partial<IStoreProps>> = {
   key: 'asp-admin-xms',
   storage: webStorage,
   transforms: [transform], // 使用转换
+  whitelist: [...whitelist],
 };
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

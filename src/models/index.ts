@@ -8,4 +8,6 @@ const rootReducer = combineReducers({
   routersData,
 });
 
-export default rootReducer;
+const whitelist = ['userinfo'];
+
+export { rootReducer, whitelist };
