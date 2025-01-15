@@ -33,11 +33,15 @@ const getQueryString = (params: IParamsType) => {
   return result.join('&');
 };
 
-const parse = (res: AxiosResponse) => {
+const parse = (res: AxiosResponse, params: { handleRaw?: boolean } = {}) => {
   const { status } = res;
+  const { handleRaw } = params;
 
   switch (status) {
     case 200:
+      if (handleRaw) {
+        return res.data;
+      }
       if (res.data.code === 0) {
         return res.data.data;
       } else if (res.data.code === 401) {
@@ -72,13 +76,13 @@ const parse = (res: AxiosResponse) => {
   return null;
 };
 
-export const get = async <T>({ url, params }: IRequestConfingType): Promise<T> => {
-  const queryValues = getQueryString(params);
+export const get = async <T>({ url, data, params }: IRequestConfingType): Promise<T> => {
+  const queryValues = getQueryString(data);
   const res = await axios.get(queryValues ? `${url}?${queryValues}` : url);
-  return parse(res);
+  return parse(res, params);
 };
 
-export const post = async <T>({ url, params }: IRequestConfingType): Promise<T> => {
-  const res = await axios.post(url, params);
-  return parse(res);
+export const post = async <T>({ url, data, params }: IRequestConfingType): Promise<T> => {
+  const res = await axios.post(url, data);
+  return parse(res, params);
 };

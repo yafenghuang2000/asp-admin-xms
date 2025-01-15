@@ -5,5 +5,8 @@ export interface IParamsType {
 
 export interface IRequestConfingType {
   url: string;
-  params: IParamsType;
+  data: IParamsType;
+  params?: {
+    handleRaw?: boolean;
+  };
 }

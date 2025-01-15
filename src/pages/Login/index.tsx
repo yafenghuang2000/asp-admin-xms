@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
+import { getUserinfo } from '@/service/userService';
 const XMSlogin: React.FC = () => {
-  const [username, setusername] = useState<string>('');
+  const [user, setUser] = useState<{ username?: string }>({});
+  const getUser = async () => {
+    const res = await getUserinfo();
+    setUser(res || {});
+  };
   useEffect(() => {
-    setusername('admin');
+    getUser();
   }, []);
   return (
     <div>
       <h1>Login</h1>
-      <h2>{username}</h2>
+      <h2>{user?.username}</h2>
     </div>
   );
 };
