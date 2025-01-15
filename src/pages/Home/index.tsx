@@ -6,7 +6,7 @@ const Home: React.FC = () => (
     <div className='xms-home-left'></div>
     <div className='xms-home-right'>
       <div className='xms-home-right-header'></div>
-      <div className='xms-home-right-content'>页面内容</div>
+      <div className='xms-home-right-content'></div>
     </div>
   </div>
 );

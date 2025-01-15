@@ -1,5 +1,5 @@
 import { notification } from 'antd';
-import axios, { AxiosResponse, InternalAxiosRequestConfig } from 'axios';
+import axios, { AxiosResponse, InternalAxiosRequestConfig, AxiosProgressEvent } from 'axios';
 import { cookieUtils } from './Cookies';
 
 type ParamValue = string | number | null | undefined | boolean | Date;
@@ -137,4 +137,43 @@ const upload = async <T>(
   return parse(res, params);
 };
 
-export { get, post, put, del, upload };
+const uploadonUploadProgress = async <T>(
+  url: string,
+  file: File | FormData,
+  params: {
+    handleRaw?: boolean;
+    responseType?: 'blob';
+    onProgress?: (progress: number) => void;
+  } = {},
+): Promise<T> => {
+  try {
+    const formData = file instanceof FormData ? file : new FormData();
+
+    if (file instanceof File) {
+      formData.append('file', file);
+    }
+
+    const config = {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      responseType: params.responseType,
+      onUploadProgress: (progressEvent: AxiosProgressEvent) => {
+        if (params.onProgress && progressEvent.total) {
+          const progress = Math.round((progressEvent.loaded * 100) / progressEvent.total);
+          params.onProgress(progress);
+        }
+      },
+    };
+
+    const res = await axios.post(url, formData, config);
+    // 如果上传成功，返回100%进度
+    params.onProgress?.(100);
+    return parse(res, params);
+  } catch (error) {
+    // 发生错误时，抛出异常
+    throw error;
+  }
+};
+
+export { get, post, put, del, upload, uploadonUploadProgress };
