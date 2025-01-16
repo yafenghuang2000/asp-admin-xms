@@ -5,7 +5,7 @@ import legacy from '@vitejs/plugin-legacy';
 import progress from 'vite-plugin-progress';
 import fs from 'fs';
 
-export const manualChunks = (id: string): string | null => {
+const manualChunks = (id: string): string | null => {
   if (id.includes('node_modules')) {
     // 确保路径中没有空字节和查询参数
     const cleanId = id.replace(/\0/g, '').split('?')[0];
