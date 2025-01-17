@@ -6,18 +6,20 @@ import { rootReducer, whitelist } from '@/models';
 import { IStoreProps } from '@/models/tyeps';
 
 // 创建存储引擎
-const createNoopStorage = () => ({
-  getItem(): Promise<string | null> {
-    return Promise.resolve(null);
-  },
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  setItem(_key: string, value: any): Promise<any> {
-    return Promise.resolve(value);
-  },
-  removeItem(): Promise<void> {
-    return Promise.resolve();
-  },
-});
+const createNoopStorage = () => {
+  return {
+    getItem(): Promise<string | null> {
+      return Promise.resolve(null);
+    },
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    setItem(_key: string, value: any): Promise<any> {
+      return Promise.resolve(value);
+    },
+    removeItem(): Promise<void> {
+      return Promise.resolve();
+    },
+  };
+};
 
 /**
  * 根据当前环境选择使用 sessionStorage 还是无操作存储。

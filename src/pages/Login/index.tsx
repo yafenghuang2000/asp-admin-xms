@@ -1,13 +1,5 @@
 import { useState } from 'react';
-import type { CSSProperties } from 'react';
-import {
-  AlipayOutlined,
-  LockOutlined,
-  MobileOutlined,
-  TaobaoOutlined,
-  UserOutlined,
-  WeiboOutlined,
-} from '@ant-design/icons';
+import { LockOutlined, MobileOutlined, UserOutlined } from '@ant-design/icons';
 import {
   LoginFormPage,
   ProConfigProvider,
@@ -15,22 +7,16 @@ import {
   ProFormCheckbox,
   ProFormText,
 } from '@ant-design/pro-components';
-import { Button, Divider, Space, Tabs, message, theme } from 'antd';
+import { Button, Tabs, message, theme } from 'antd';
 import { loginData } from './data';
 import './index.scss';
 
 type LoginType = 'phone' | 'account';
 
-const iconStyles: CSSProperties = {
-  color: 'rgba(0, 0, 0, 0.2)',
-  fontSize: '18px',
-  verticalAlign: 'middle',
-  cursor: 'pointer',
-};
-
 const Page = () => {
   const [loginType, setLoginType] = useState<LoginType>('phone');
   const { token } = theme.useToken();
+  console.log(token, 'token');
   return (
     <div className='xms-login-page'>
       <LoginFormPage
@@ -51,49 +37,6 @@ const Page = () => {
           width: 'fit-content',
           height: 'fit-content',
         }}
-        // subTitle={<div className='xms-login-page-subTitle'></div>}
-        // activityConfig={{
-        //   style: {
-        //     boxShadow: '0px 0px 8px rgba(0, 0, 0, 0.2)',
-        //     color: token.colorTextHeading,
-        //     borderRadius: 8,
-        //     backgroundColor: 'rgba(255,255,255,0.25)',
-        //     backdropFilter: 'blur(4px)',
-        //   },
-        //   title: '活动标题，可配置图片',
-        //   subTitle: '活动介绍说明文字',
-        //   action: (
-        //     <Button
-        //       size='large'
-        //       style={{
-        //         borderRadius: 20,
-        //         background: token.colorBgElevated,
-        //         color: token.colorPrimary,
-        //         width: 120,
-        //       }}
-        //     >
-        //       去看看
-        //     </Button>
-        //   ),
-        // }}
-        actions={
-          <div className='xms-login-page-actions'>
-            <Divider plain>
-              <span className='xms-login-page-actions-spanlogin'>其他登录方式</span>
-            </Divider>
-            <Space align='center' size={24}>
-              <div className='xms-login-page-actions-icon'>
-                <AlipayOutlined style={{ ...iconStyles, color: '#1677FF' }} />
-              </div>
-              <div className='xms-login-page-actions-icon'>
-                <TaobaoOutlined style={{ ...iconStyles, color: '#FF6A10' }} />
-              </div>
-              <div className='xms-login-page-actions-icon'>
-                <WeiboOutlined style={{ ...iconStyles, color: '#1890ff' }} />
-              </div>
-            </Space>
-          </div>
-        }
       >
         <Tabs
           centered
@@ -170,7 +113,7 @@ const Page = () => {
                   message: '请输入手机号！',
                 },
                 {
-                  pattern: /^1\d{10}$/,
+                  pattern: /^1[3-9]\d{9}$/,
                   message: '手机号格式错误！',
                 },
               ]}
