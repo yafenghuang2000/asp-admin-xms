@@ -92,8 +92,7 @@ export default [
         'error',
         'as-needed',
         {
-          requireReturnForObjectLiteral: false,
-          // requireReturnForArrowBodyWithBlock: true, // 添加这个配置
+          requireReturnForObjectLiteral: true,
         },
       ],
       'object-shorthand': ['error', 'always'],
