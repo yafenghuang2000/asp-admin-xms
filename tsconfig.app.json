@@ -45,7 +45,8 @@
     /* 阿里巴巴推荐的 TypeScript 规范 */
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
-    "alwaysStrict": true
+    "alwaysStrict": true,
+    "typeRoots": ["node_modules/@types"]
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist"]

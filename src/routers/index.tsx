@@ -8,7 +8,7 @@ const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
 
 const isUserAuthenticated = () => {
   const user = cookieUtils.get('user');
-  if (user) {
+  if (!user) {
     return redirect('/login');
   }
   return null;

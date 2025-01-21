@@ -8,6 +8,7 @@ import {
   ProFormText,
 } from '@ant-design/pro-components';
 import { Button, Tabs, message, theme } from 'antd';
+import WmsIcon from '@/assets/wms-icon.png';
 import { loginData } from './data';
 import './index.scss';
 
@@ -16,14 +17,14 @@ type LoginType = 'phone' | 'account';
 const Page = () => {
   const [loginType, setLoginType] = useState<LoginType>('phone');
   const { token } = theme.useToken();
-  console.log(token, 'token');
+
   return (
     <div className='xms-login-page'>
       <LoginFormPage
         backgroundImageUrl='https://mdn.alipayobjects.com/huamei_gcee1x/afts/img/A*y0ZTS6WLwvgAAAAAAAAAAAAADml6AQ/fmt.webp'
-        logo='https://github.githubassets.com/favicons/favicon.png'
+        logo={WmsIcon}
         backgroundVideoUrl='https://gw.alipayobjects.com/v/huamei_gcee1x/afts/video/jXRBRK_VAwoAAAAAAAAAAAAAK4eUAQBr'
-        title={<div className='xms-login-page-title'>ASP-XMS售后系统</div>}
+        title={<div className='xms-login-page-title'>XXXXXXXXXX管理系统</div>}
         containerStyle={{
           backgroundColor: 'rgba(0, 0, 0,0.3)',
           backdropFilter: 'blur(4px)',
