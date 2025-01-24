@@ -19,7 +19,9 @@
     "build:production": "tsc -b && vite build --mode production",
     "build:staging": "tsc -b && vite build --mode staging",
     "build:test": "tsc -b && vite build --mode test",
-    "dev": "vite"
+    "dev": "vite",
+    "lint:style": "stylelint src/**/*.{css,scss}",
+    "lint:style:fix": "stylelint src/**/*.{css,scss} --fix"
   },
   "dependencies": {
     "@ant-design/icons": "^5.5.2",
@@ -42,7 +44,13 @@
     "redux": "^5.0.1",
     "redux-persist": "^6.0.0",
     "redux-thunk": "^3.1.0",
-    "sass": "^1.83.1"
+    "sass": "^1.83.1",
+    "stylelint": "^16.13.2",
+    "stylelint-config-prettier": "^9.0.5",
+    "stylelint-config-recommended-scss": "^14.1.0",
+    "stylelint-config-standard": "^37.0.0",
+    "stylelint-prettier": "^5.0.2",
+    "vite-plugin-stylelint": "^6.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",

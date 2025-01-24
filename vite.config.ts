@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import legacy from '@vitejs/plugin-legacy';
 import progress from 'vite-plugin-progress';
+import stylelintPlugin from 'vite-plugin-stylelint';
 import fs from 'fs';
 
 const manualChunks = (id: string): string | null => {
@@ -38,6 +39,9 @@ export default defineConfig(({ mode }) => {
       progress(),
       legacy({
         targets: ['defaults', 'not IE 11'],
+      }),
+      stylelintPlugin({
+        include: ['src/**/*.{css,scss}'],
       }),
     ],
     server: {

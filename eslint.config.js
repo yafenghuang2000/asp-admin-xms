@@ -58,11 +58,11 @@ export default [
       'react/jsx-key': 'error',
       'react/prop-types': 'error',
 
-      // TypeScript 相关规则
+      // // TypeScript 相关规则
       '@typescript-eslint/explicit-function-return-type': 'off',
-      '@typescript-eslint/no-explicit-any': 'warn',
-      '@typescript-eslint/explicit-module-boundary-types': 'warn',
       '@typescript-eslint/no-explicit-any': 'error',
+      '@typescript-eslint/explicit-module-boundary-types': 'warn',
+
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
@@ -124,8 +124,8 @@ export default [
           ignoreComments: true,
         },
       ],
-      'no-console': 'warn',
-      'no-debugger': 'error',
+      // 'no-console': 'warn',
+      // 'no-debugger': 'error',
 
       // 命名规范
       camelcase: [
