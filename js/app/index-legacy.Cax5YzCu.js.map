@@ -1,0 +1,1 @@
+{"version":3,"file":"index-legacy.Cax5YzCu.js","sources":["../../../src/pages/NotFoundPage/index.tsx"],"sourcesContent":["import React from 'react';\n\nconst NotFoundPage = (): React.JSX.Element => <div>NotFoundPage</div>;\n\nexport default NotFoundPage;\n"],"names":["exports","jsx","children"],"mappings":"0OAEqBA,EAAA,WAAA,IAA0BC,EAAAA,IAAA,MAAA,CAAIC,SAAY"}

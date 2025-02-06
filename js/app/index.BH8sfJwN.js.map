@@ -1,0 +1,1 @@
+{"version":3,"file":"index.BH8sfJwN.js","sources":["../../../src/pages/NotFoundPage/index.tsx"],"sourcesContent":["import React from 'react';\n\nconst NotFoundPage = (): React.JSX.Element => <div>NotFoundPage</div>;\n\nexport default NotFoundPage;\n"],"names":["NotFoundPage","jsxRuntimeExports","jsx","children"],"mappings":"sIAEA,MAAMA,EAAe,IAA0BC,EAAAC,IAAA,MAAA,CAAIC,SAAY"}
