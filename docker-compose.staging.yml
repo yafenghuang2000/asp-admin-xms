@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    environment:
+      - NODE_ENV=staging
+      - VITE_APP_BASE_API_PRODUCTION=${VITE_APP_BASE_API_STAGING}
+    ports:
+      - '8084:80'

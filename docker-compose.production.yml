@@ -1,0 +1,8 @@
+version: '3'
+services:
+  app:
+    environment:
+      - NODE_ENV=production
+      - VITE_APP_BASE_API_PRODUCTION=${VITE_APP_BASE_API_PRODUCTION}
+    ports:
+      - '8083:80'
