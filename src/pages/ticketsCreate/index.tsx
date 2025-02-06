@@ -6,7 +6,7 @@ const TicketsCreate: React.FC = () => {
   useEffect(() => {
     setTitle('Tickets Create');
   }, []);
-  return <div>{title}</div>;
+  return <div>{title}111111</div>;
 };
 
 export default TicketsCreate;
