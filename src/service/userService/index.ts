@@ -4,6 +4,6 @@ import { IRouterResponse, IUserinfoResponse, IUuserParams } from './userServiceT
 export const login = (data: IUuserParams): Promise<IUserinfoResponse> =>
   post({ url: '/login', data: data || {} });
 
-export const getUserInfo = (): Promise<IUserinfoResponse> => get({ url: '/api/user' });
+export const getUserInfo = (): Promise<IUserinfoResponse> => get({ url: '/user' });
 
-export const getRouters = (): Promise<IRouterResponse[]> => post({ url: '/api/router' });
+export const getRouters = (): Promise<IRouterResponse[]> => post({ url: '/router' });

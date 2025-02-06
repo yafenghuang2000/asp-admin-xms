@@ -27,7 +27,7 @@ interface IRouterResponse {
 
 const userMock: MockMethod[] = [
   {
-    url: '/api/user',
+    url: '/user',
     method: 'get',
     response: (): IUserResponse => {
       return {
@@ -42,7 +42,7 @@ const userMock: MockMethod[] = [
     },
   },
   {
-    url: '/api/router',
+    url: '/router',
     method: 'post',
     response: (): IRouterResponse => {
       return {

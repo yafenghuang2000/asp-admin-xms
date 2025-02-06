@@ -16,7 +16,7 @@ const formatMenuItems = (items: IMenuItem[]): MenuProps['items'] =>
       key: item.id,
       label: item.path ? <Link to={item.path}>{item.label}</Link> : item.label,
       icon: item.icon,
-      children: item.children ? formatMenuItems(item.children) : [],
+      children: item.children ? formatMenuItems(item.children) : undefined,
     };
   });
 

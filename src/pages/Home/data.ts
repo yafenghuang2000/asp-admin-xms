@@ -14,6 +14,6 @@ export const convertToMenuItems = (items: IRouterResponse[]): IMenuItem[] =>
       id: item.id,
       label: item.label,
       path: item.path,
-      children: item.children ? convertToMenuItems(item.children) : [],
+      children: item.children ? convertToMenuItems(item.children) : undefined,
     };
   });
