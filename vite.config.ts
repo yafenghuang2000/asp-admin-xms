@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => {
         logger: true, // 打印日志
       }),
     ],
-    base: '/',
+    base: '/asp-admin-xms/', // 部署到 GitHub Pages 上
     server: {
       port: 8000,
       open: true,
