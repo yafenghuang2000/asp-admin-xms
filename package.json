@@ -17,7 +17,7 @@
     "prepare": "husky",
     "lint:style": "stylelint '**/*.{css,scss,sass}'",
     "lint:style:fix": "stylelint '**/*.{css,scss,sass}' --fix",
-    "preview": "vite preview --mode development"
+    "preview": "vite preview --mode production"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.0",
