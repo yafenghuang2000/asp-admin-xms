@@ -33,20 +33,3 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./dist
-          destination_dir: docs
-          publish_branch: master
-       - name: Install Nginx
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y nginx
-
-      - name: Copy build files to Nginx root
-        run: |
-          sudo cp -r ./dist/* /var/www/html/
-
-      - name: Restart Nginx
-        run: |
-          sudo systemctl restart nginx
-
-      - name: Print Nginx status
-        run: sudo systemctl status nginx
