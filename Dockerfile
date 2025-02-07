@@ -1,5 +1,5 @@
 # 使用 Node.js 镜像来构建应用
-FROM node:18 AS builder
+FROM node:20 AS builder
 
 # 设置工作目录
 WORKDIR /app

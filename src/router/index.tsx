@@ -9,7 +9,6 @@ const TicketsCreate = React.lazy(() => import('@/pages/ticketsCreate'));
 
 const isUserAuthenticated = () => {
   const user = getCookie('username');
-
   if (!user) {
     return redirect('/login');
   }
