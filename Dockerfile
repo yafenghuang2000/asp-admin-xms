@@ -1,5 +1,5 @@
 # 使用 Node.js 镜像来构建应用
-FROM node:20 AS builder
+FROM node:20.18.1 AS builder
 
 # 设置工作目录
 WORKDIR /app
@@ -8,10 +8,9 @@ WORKDIR /app
 COPY package*.json ./
 
 # 安装依赖
-#RUN npm install pnpm -g
-#
-#RUN pnpm install
-RUN npm install -f
+RUN npm install pnpm -g
+
+RUN pnpm install
 
 # 复制应用源代码
 COPY . .

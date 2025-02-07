@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { Layout, Menu, Input } from 'antd';
-import { Link, useLocation, Outlet } from 'react-router-dom';
 import type { MenuProps } from 'antd';
+import { Input, Layout, Menu } from 'antd';
+import { Link, Outlet, useLocation } from 'react-router-dom';
 import { getRouters } from '@/service/userService';
 import userImg from '@/assets/useer.svg';
 import xmsImg from '@/assets/xmsImg.svg';
 import { convertToMenuItems, IMenuItem } from './data.ts';
 
 import './index.scss';
+
 const { Header, Content, Sider } = Layout;
 
-const formatMenuItems = (items: IMenuItem[]): MenuProps['items'] =>
-  items.map((item) => {
+const formatMenuItems = (items: IMenuItem[]): MenuProps['items'] => {
+  if (!items || items.length === 0) return [];
+  return items.map((item) => {
     return {
       key: item.id,
       label: item.path ? <Link to={item.path}>{item.label}</Link> : item.label,
@@ -19,6 +21,7 @@ const formatMenuItems = (items: IMenuItem[]): MenuProps['items'] =>
       children: item.children ? formatMenuItems(item.children) : undefined,
     };
   });
+};
 
 const Home: React.FC = () => {
   const location = useLocation();
@@ -35,8 +38,9 @@ const Home: React.FC = () => {
   }, []);
 
   // 根据搜索文本过滤菜单
-  const filterMenu = (items: IMenuItem[]): IMenuItem[] =>
-    items.filter((item) => {
+  const filterMenu = (items: IMenuItem[]): IMenuItem[] => {
+    if (items.length === 0 || !items) return [];
+    return items.filter((item) => {
       const match = item.label.toLowerCase().includes(searchText.toLowerCase());
       if (item.children) {
         const childMatch = filterMenu(item.children);
@@ -44,6 +48,7 @@ const Home: React.FC = () => {
       }
       return match;
     });
+  };
 
   const getSelectedKeys = () =>
     menuData
