@@ -2,9 +2,10 @@ import React, { useEffect, useState } from 'react';
 import type { MenuProps } from 'antd';
 import { Input, Layout, Menu } from 'antd';
 import { Link, Outlet, useLocation } from 'react-router-dom';
-import { getRouters } from '@/service/userService';
+import { useSelector } from 'react-redux';
 import userImg from '@/assets/useer.svg';
 import xmsImg from '@/assets/xmsImg.svg';
+import { IStoreProps } from '@/models/types';
 import { convertToMenuItems, IMenuItem } from './data.ts';
 
 import './index.scss';
@@ -25,12 +26,14 @@ const formatMenuItems = (items: IMenuItem[]): MenuProps['items'] => {
 
 const Home: React.FC = () => {
   const location = useLocation();
-  const [searchText, setSearchText] = useState('');
+  const routersData = useSelector((state: IStoreProps) => state.routersData);
+  const userinfo = useSelector((state: IStoreProps) => state.userinfo);
+
+  const [searchText, setSearchText] = useState<string>('');
   const [menuData, setmenuData] = useState<IMenuItem[]>([]);
 
   const getMenuData = async () => {
-    const res = await getRouters();
-    setmenuData(convertToMenuItems(res));
+    setmenuData(convertToMenuItems(routersData?.routerList || []));
   };
 
   useEffect(() => {
@@ -96,7 +99,7 @@ const Home: React.FC = () => {
             <div className='asp-comprehension-home-header-content'>
               <div className='asp-comprehension-home-header-content-user'>
                 <img src={userImg} alt='' />
-                <div>你猜猜我是谁</div>
+                <div>{userinfo.name}</div>
               </div>
             </div>
           </Header>

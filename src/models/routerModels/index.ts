@@ -1,9 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { list } from './data.ts';
 
 const routersSlice = createSlice({
   name: 'xms/router',
   initialState: {
-    routers: [],
+    routerList: list ?? [],
   },
   reducers: {},
 });
