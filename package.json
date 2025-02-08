@@ -17,9 +17,7 @@
     "preview:production": "vite preview --mode production",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
-    "prepare": "husky",
-    "lint:style": "stylelint '**/*.{css,scss,sass}'",
-    "lint:style:fix": "stylelint '**/*.{css,scss,sass}' --fix"
+    "prepare": "husky"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.0",
@@ -69,12 +67,6 @@
     "lint-staged": "^15.4.2",
     "prettier": "^3.4.2",
     "semver": "^7.6.3",
-    "stylelint": "^16.14.1",
-    "stylelint-config-ali": "^2.1.1",
-    "stylelint-config-prettier": "9.0.5",
-    "stylelint-config-recommended-scss": "^14.1.0",
-    "stylelint-config-standard": "^37.0.0",
-    "stylelint-order": "^6.0.4",
     "terser": "^5.37.0",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.21.0",
@@ -88,7 +80,6 @@
       "prettier --write"
     ],
     "*.{css,less,scss}": [
-      "eslint --fix",
       "prettier --write"
     ]
   },

@@ -5,6 +5,7 @@ import legacy from '@vitejs/plugin-legacy';
 import progress from 'vite-plugin-progress';
 import fs from 'fs';
 import { viteMockServe } from 'vite-plugin-mock';
+import stylelint from 'vite-plugin-stylelint';
 
 const manualChunks = (id: string): string | null => {
   if (id.includes('node_modules')) {
@@ -46,6 +47,10 @@ export default defineConfig(({ mode }) => {
         watchFiles: true, // 如果使用 TypeScript，可以设置为 true
         logger: true, // 打印日志
       }),
+      stylelint({
+        fix: true,
+        include: ['src/**/*.scss'],
+      }),
     ],
     base: env.VITE_APP_BASE_PROJWCTNAME ? `/${env.VITE_APP_BASE_PROJWCTNAME}/` : '/',
     server: {
@@ -76,7 +81,7 @@ export default defineConfig(({ mode }) => {
             '@primary-color': '#1890ff',
           },
         },
-        sass: {},
+        sass: {}, // 添加对 SCSS 文件的支持
       },
     },
     define: {

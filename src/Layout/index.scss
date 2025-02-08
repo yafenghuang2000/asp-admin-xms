@@ -8,23 +8,23 @@
   }
 
   &-menu {
-    flex-shrink: 0;
     display: flex;
+    flex-shrink: 0;
+    height: 100%;
+    transition: width 0.28s;
     flex-direction: column;
     margin-top: 5px;
     border-right: 1px solid #e9ebed;
-    transition: width 0.28s;
-    height: 100%;
 
     &-logo {
       display: flex;
+      flex-shrink: 0;
       align-items: center;
-      margin: 0 10px;
       height: 40px;
+      padding: 0 15px;
+      margin: 0 10px;
       background: #237ffa;
       border-radius: 4px;
-      padding: 0 15px;
-      flex-shrink: 0;
       transition: padding 0.28s;
 
       img {
@@ -34,9 +34,9 @@
       }
 
       &-title {
+        color: #fff;
         font-size: 16px;
         font-weight: 700;
-        color: #fff;
         white-space: nowrap;
       }
     }
@@ -44,16 +44,16 @@
     &-search {
       position: relative;
       z-index: 1000;
-      padding: 12px 12px 0;
       flex-shrink: 0;
+      padding: 12px 12px 0;
     }
 
     &-content {
+      flex-grow: 1;
       width: 100%;
       height: calc(100% - 106px);
-      flex-grow: 1;
-      margin-top: 12px;
       overflow-y: hidden;
+      margin-top: 12px;
 
       &:hover {
         // 鼠标移入时
@@ -70,18 +70,18 @@
     border-bottom: 1px solid #e9ebed;
 
     &-content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
 
       &-user {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
         width: fit-content;
         min-width: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
         color: #000;
         font-size: 16px;
         font-weight: 700;
@@ -103,8 +103,3 @@
     background-color: rgb(255 255 255 / 10%);
   }
 }
-
-// 修复缩进错误
-// 修复字符串引号错误
-// 修复颜色十六进制大小写错误
-// 修复单位白名单错误

@@ -3,11 +3,16 @@ module.exports = {
   extends: [
     'stylelint-config-standard',
     'stylelint-config-recommended-scss',
+
     'stylelint-config-ali',
     'stylelint-order',
     'stylelint-config-prettier',
+
+    'stylelint-config-standard-scss',
   ],
+  plugins: ['stylelint-scss'], // 添加自定义规则
   rules: {
+    'selector-class-pattern': null,
     // url值必须使用单引号包裹
     'function-url-quotes': ['always'],
     // 变量后必须添加!default，本地局部变量可以不加
