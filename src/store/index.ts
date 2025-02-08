@@ -3,7 +3,7 @@ import { createTransform, PersistConfig, persistReducer, persistStore } from 're
 import createWebStorage from 'redux-persist/lib/storage/createWebStorage';
 import { thunk } from 'redux-thunk';
 import { rootReducer, whitelist } from '@/models';
-import { IStoreProps } from '@/models/tyeps';
+import { IStoreProps } from '@/models/types';
 
 // 创建存储引擎
 const createNoopStorage = () => {
