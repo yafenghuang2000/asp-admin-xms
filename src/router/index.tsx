@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, redirect } from 'react-router-dom';
+import { createHashRouter, redirect } from 'react-router-dom';
 import { getCookie } from '@/utils/cookies';
 
 const Home = React.lazy(() => import('@/pages/Home'));
@@ -15,7 +15,7 @@ const isUserAuthenticated = () => {
   return null;
 };
 
-const routers = createBrowserRouter([
+const routers = createHashRouter([
   {
     path: '/',
     element: <Home />,
