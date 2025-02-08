@@ -1,2 +1,1 @@
 System.register(["../vendor/react-vendor-legacy.BefqqGXj.js","../vendor/vendor-legacy.B38W5OEB.js","../vendor/antd-vendor-legacy.CPypRCYG.js"],(function(e,t){"use strict";var r,n;return{setters:[e=>{r=e.g,n=e.j},null,null],execute:function(){e("default",(()=>{const[e,t]=r.useState("");return r.useEffect((()=>{t("Tickets Create")}),[]),n.jsxs("div",{children:[e,"111111"]})}))}}}));
-//# sourceMappingURL=index-legacy.08k_Lum2.js.map
