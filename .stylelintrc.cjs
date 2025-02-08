@@ -1,6 +1,11 @@
 module.exports = {
   // 引入标准配置文件和scss配置扩展
-  extends: ['stylelint-config-standard', 'stylelint-config-recommended-scss'],
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-recommended-scss',
+    'stylelint-config-ali',
+    'stylelint-order',
+  ],
   rules: {
     // url值必须使用单引号包裹
     'function-url-quotes': ['always'],
@@ -16,6 +21,12 @@ module.exports = {
     'color-named': ['never'],
     // 不能有无效的16进制颜色值
     'color-no-invalid-hex': [true],
+    indentation: 2,
+    'string-quotes': 'single',
+    'color-hex-case': 'lower',
+    'color-hex-length': 'short',
+    'block-no-empty': true,
+    'unit-whitelist': ['em', 'rem', '%', 's'],
     'scss/at-rule-no-unknown': [
       true,
       {

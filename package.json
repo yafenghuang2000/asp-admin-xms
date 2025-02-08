@@ -4,20 +4,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "vite --mode development",
+    "start": "vite --mode test",
     "start:production": "vite --mode production",
     "start:staging": "vite --mode staging",
     "start:test": "vite --mode test",
-    "build:development": "tsc -b && vite build --mode development",
     "build:production": "tsc -b && vite build --mode production",
     "build:staging": "tsc -b && vite build --mode staging",
     "build:test": "tsc -b && vite build --mode test",
+    "preview": "vite preview --mode test",
+    "preview:test": "vite preview --mode test",
+    "preview:staging": "vite preview --mode staging",
+    "preview:production": "vite preview --mode production",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "prepare": "husky",
     "lint:style": "stylelint '**/*.{css,scss,sass}'",
-    "lint:style:fix": "stylelint '**/*.{css,scss,sass}' --fix",
-    "preview": "vite preview --mode production"
+    "lint:style:fix": "stylelint '**/*.{css,scss,sass}' --fix"
   },
   "dependencies": {
     "@ant-design/icons": "^5.6.0",
@@ -85,6 +87,7 @@
       "prettier --write"
     ],
     "*.{css,less,scss}": [
+      "stylelint --fix",
       "prettier --write"
     ]
   },

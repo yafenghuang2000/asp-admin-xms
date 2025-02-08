@@ -47,7 +47,7 @@ export default defineConfig(({ mode }) => {
         logger: true, // 打印日志
       }),
     ],
-    base: '/asp-admin-xms/',
+    base: env.VITE_APP_BASE_PROJWCTNAME ? `/${env.VITE_APP_BASE_PROJWCTNAME}/` : '/',
     server: {
       port: 8000,
       open: true,
