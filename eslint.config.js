@@ -88,7 +88,7 @@ export default [
       // 最佳实践
       eqeqeq: ['error', 'always'],
       'no-multiple-empty-lines': ['error', { max: 1 }],
-      'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: true }],
+      // 'arrow-body-style': ['error', 'as-needed', { requireReturnForObjectLiteral: true }],
       'object-shorthand': ['error', 'always'],
       'prefer-template': 'error',
       'no-param-reassign': 'error',
