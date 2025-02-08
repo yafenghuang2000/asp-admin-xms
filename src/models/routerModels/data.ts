@@ -6,33 +6,49 @@ export const list = [
   },
   {
     id: '2',
-    label: '工单管理',
+    label: '系统配置',
     children: [
       {
         id: '2-1',
-        label: '新建工单',
-        path: '/tickets/create',
+        label: '系统管理',
+        children: [
+          {
+            id: '2-1-1',
+            label: '数据字典',
+            path: '/systemManagement/dataDict',
+          },
+          {
+            id: '2-1-2',
+            label: '接口日志',
+            path: '/systemManagement/apiLogs',
+          },
+        ],
       },
       {
         id: '2-2',
-        label: '工单列表',
-        path: '/tickets/list',
-      },
-    ],
-  },
-  {
-    id: '3',
-    label: '客户管理',
-    children: [
-      {
-        id: '3-1',
-        label: '客户列表',
-        path: '/customers',
-      },
-      {
-        id: '3-2',
-        label: '服务记录',
-        path: '/service-records',
+        label: '账号权限',
+        children: [
+          {
+            id: '2-2-1',
+            label: '角色管理',
+            path: '/authMenu/roleAdmin',
+          },
+          {
+            id: '2-2-2',
+            label: '菜单管理',
+            path: '/authMenu/menuList',
+          },
+          {
+            id: '2-2-3',
+            label: '用户管理',
+            path: '/authMenu/userAdmin',
+          },
+          {
+            id: '2-2-4',
+            label: '权限列表',
+            path: '/authMenu/authList',
+          },
+        ],
       },
     ],
   },

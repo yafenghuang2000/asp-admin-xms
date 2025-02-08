@@ -2,10 +2,16 @@ import React from 'react';
 import { createHashRouter, redirect } from 'react-router-dom';
 import { getCookie } from '@/utils/cookies';
 
-const Home = React.lazy(() => import('@/pages/Home'));
+const LayoutHome = React.lazy(() => import('@/Layout'));
 const Login = React.lazy(() => import('@/pages/Login'));
 const NotFoundPage = React.lazy(() => import('@/pages/NotFoundPage'));
-const TicketsCreate = React.lazy(() => import('@/pages/ticketsCreate'));
+const Home = React.lazy(() => import('@/pages/Home'));
+const ApiLogs = React.lazy(() => import('@/pages/apiLogs'));
+const DataDict = React.lazy(() => import('@/pages/dataDict'));
+const RoleAdmin = React.lazy(() => import('@/pages/roleAdmin'));
+const MenuList = React.lazy(() => import('@/pages/menuList'));
+const UserAdmin = React.lazy(() => import('@/pages/userAdmin'));
+const AuthList = React.lazy(() => import('@/pages/authList'));
 
 const isUserAuthenticated = () => {
   const user = getCookie('username');
@@ -18,28 +24,36 @@ const isUserAuthenticated = () => {
 const routers = createHashRouter([
   {
     path: '/',
-    element: <Home />,
+    element: <LayoutHome />,
     loader: isUserAuthenticated,
     children: [
       {
         path: '/',
-        element: <div>首页</div>,
+        element: <Home />,
       },
       {
-        path: '/tickets/create',
-        element: <TicketsCreate />,
+        path: '/systemManagement/apiLogs',
+        element: <ApiLogs />,
       },
       {
-        path: '/tickets/list',
-        element: <div>工单列表</div>,
+        path: '/systemManagement/dataDict',
+        element: <DataDict />,
       },
       {
-        path: '/customers',
-        element: <div>客户列表</div>,
+        path: '/authMenu/roleAdmin',
+        element: <RoleAdmin />,
       },
       {
-        path: '/service-records',
-        element: <div>客户记录</div>,
+        path: '/authMenu/menuList',
+        element: <MenuList />,
+      },
+      {
+        path: '/authMenu/userAdmin',
+        element: <UserAdmin />,
+      },
+      {
+        path: '/authMenu/authList',
+        element: <AuthList />,
       },
     ],
   },

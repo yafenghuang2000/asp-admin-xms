@@ -5,6 +5,7 @@ module.exports = {
     'stylelint-config-recommended-scss',
     'stylelint-config-ali',
     'stylelint-order',
+    'stylelint-config-prettier',
   ],
   rules: {
     // url值必须使用单引号包裹
@@ -21,7 +22,7 @@ module.exports = {
     'color-named': ['never'],
     // 不能有无效的16进制颜色值
     'color-no-invalid-hex': [true],
-    indentation: 2,
+    indentation: null,
     'string-quotes': 'single',
     'color-hex-case': 'lower',
     'color-hex-length': 'short',

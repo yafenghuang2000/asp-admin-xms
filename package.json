@@ -69,8 +69,9 @@
     "lint-staged": "^15.4.2",
     "prettier": "^3.4.2",
     "semver": "^7.6.3",
-    "stylelint": "^16.13.2",
+    "stylelint": "^16.14.1",
     "stylelint-config-ali": "^2.1.1",
+    "stylelint-config-prettier": "9.0.5",
     "stylelint-config-recommended-scss": "^14.1.0",
     "stylelint-config-standard": "^37.0.0",
     "stylelint-order": "^6.0.4",
@@ -87,7 +88,7 @@
       "prettier --write"
     ],
     "*.{css,less,scss}": [
-      "stylelint --fix",
+      "eslint --fix",
       "prettier --write"
     ]
   },
