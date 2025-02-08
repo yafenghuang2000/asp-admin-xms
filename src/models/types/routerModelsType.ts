@@ -2,5 +2,5 @@ export interface IRouterResponse {
   id: string;
   label: string;
   path: string;
-  children?: IRouterResponse[];
+  children?: IRouterResponse[] | undefined;
 }
