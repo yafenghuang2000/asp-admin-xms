@@ -1,0 +1,2 @@
+import{j as o}from"../vendor/react-vendor.C-XX9Ytw.js";import"../vendor/vendor.BPsyIeIZ.js";import"../vendor/antd-vendor.CQrnyFg-.js";const r=()=>o.jsx("div",{children:"NotFoundPage"});export{r as default};
+//# sourceMappingURL=index.a0urGTBd.js.map

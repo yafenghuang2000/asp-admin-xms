@@ -1,0 +1,2 @@
+import{g as e,j as r}from"../vendor/react-vendor.C-XX9Ytw.js";import"../vendor/vendor.BPsyIeIZ.js";import"../vendor/antd-vendor.CQrnyFg-.js";const t=()=>{const[t,o]=e.useState("");return e.useEffect((()=>{o("Tickets Create")}),[]),r.jsxs("div",{children:[t,"111111"]})};export{t as default};
+//# sourceMappingURL=index.6DNVDZD0.js.map
