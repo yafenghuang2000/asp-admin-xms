@@ -95,6 +95,10 @@ export default defineConfig(({ mode }) => {
           drop_console: true,
           drop_debugger: true,
         },
+        mangle: true,
+        output: {
+          comments: false, // 移除注释
+        },
       },
       rollupOptions: {
         output: {
