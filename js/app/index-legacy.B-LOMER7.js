@@ -1,1 +1,0 @@
-System.register(["../vendor/react-vendor-legacy.6oDjU9eW.js","../vendor/vendor-legacy.DZKsoVHC.js","../vendor/antd-vendor-legacy.CJ_krY0y.js"],(function(e,n){"use strict";var r;return{setters:[e=>{r=e.j},null,null],execute:function(){e("default",(()=>r.jsx("div",{children:"菜单管理"})))}}}));
