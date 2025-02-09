@@ -1,7 +1,12 @@
 import { FC } from 'react';
+import XmsHeader from '@/components/xms-header';
 
 const RoleAdmin: FC = () => {
-  return <div>角色管理</div>;
+  return (
+    <div>
+      <XmsHeader title='角色管理' />
+    </div>
+  );
 };
 
 export default RoleAdmin;
