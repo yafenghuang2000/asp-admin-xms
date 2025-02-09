@@ -1,1 +1,0 @@
-import{j as o}from"../vendor/react-vendor.C-XX9Ytw.js";import"../vendor/vendor.BPsyIeIZ.js";import"../vendor/antd-vendor.CQrnyFg-.js";const e=()=>o.jsx("div",{className:"xms-home",children:"Home"});export{e as default};
